@@ -236,3 +236,8 @@ Use
 to submit the assignment on an instructional machine. You just need to submit `hw4.xml`.
 
 Before submitting the assignment, run `xmllint --noout hw4.xml` or open the XML file in a browser (Mozilla Firefox or Google Chrome) and make sure it passes the validation test (i.e. no error reported).
+=======
+
+optimizer_practice
+==================
+This projects gives you an in depth understanding of indexing structure in database queries!
