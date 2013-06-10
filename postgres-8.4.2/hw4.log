@@ -1,0 +1,387 @@
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2012-10-24 18:17:44 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2012-10-26 16:16:43 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  could not open file "$HOME/fa12/hw4/usnews.data" for reading: No such file or directory
+STATEMENT:  copy rankings from '$HOME/fa12/hw4/usnews.data' delimiters ',' with NULL '*';
+ERROR:  could not open file "$HOME/fa12/hw4/aaup.data" for reading: No such file or directory
+STATEMENT:  copy financials from '$HOME/fa12/hw4/aaup.data' delimiters ',' with NULL '*';
+ERROR:  could not open file "$HOME/fa12/hw4/students.dat" for reading: No such file or directory
+STATEMENT:  copy students from '$HOME/fa12/hw4/students.dat' delimiters ',';
+FATAL:  could not open file "global/pg_database": No such file or directory
+LOG:  autovacuum launcher process (PID 2290) exited with exit code 1
+LOG:  terminating any other active server processes
+LOG:  could not open temporary statistics file "global/pgstat.tmp": No such file or directory
+LOG:  all server processes terminated; reinitializing
+LOG:  could not open file "postmaster.pid": No such file or directory
+FATAL:  could not stat data directory "/home/ubuntu/pgsql/data": No such file or directory
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2012-10-28 19:27:24 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  could not open file "$HOME/fa12/hw4/usnews.data" for reading: No such file or directory
+STATEMENT:  copy rankings from '$HOME/fa12/hw4/usnews.data' delimiters ',' with NULL '*';
+ERROR:  could not open file "$HOME/fa12/hw4/aaup.data" for reading: No such file or directory
+STATEMENT:  copy financials from '$HOME/fa12/hw4/aaup.data' delimiters ',' with NULL '*';
+ERROR:  could not open file "$HOME/fa12/hw4/students.dat" for reading: No such file or directory
+STATEMENT:  copy students from '$HOME/fa12/hw4/students.dat' delimiters ',';
+ERROR:  column "index" does not exist at character 8
+STATEMENT:  select index from rankings
+	;
+ERROR:  syntax error at or near "from" at character 14
+STATEMENT:  show indexes from rankings;
+ERROR:  column "index" does not exist at character 8
+STATEMENT:  select index from rankings;
+ERROR:  column "indexes" does not exist at character 8
+STATEMENT:  select indexes from rankings
+	;
+ERROR:  syntax error at or near "from" at character 14
+STATEMENT:  show indexes from rankings
+	;
+ERROR:  unrecognized configuration parameter "indexes"
+STATEMENT:  show indexes;
+ERROR:  syntax error at or near "FROM" at character 14
+STATEMENT:  show indexes FROM rankings;
+ERROR:  syntax error at or near "query" at character 1
+STATEMENT:  query pg_stats
+	;
+ERROR:  syntax error at or near "pg_stats" at character 1
+STATEMENT:  pg_stats
+	;
+FATAL:  could not open file "global/pg_database": No such file or directory
+LOG:  autovacuum launcher process (PID 2414) exited with exit code 1
+LOG:  terminating any other active server processes
+WARNING:  terminating connection because of crash of another server process
+DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+LOG:  could not open temporary statistics file "global/pgstat.tmp": No such file or directory
+LOG:  all server processes terminated; reinitializing
+LOG:  could not open file "postmaster.pid": No such file or directory
+PANIC:  could not open control file "global/pg_control": No such file or directory
+LOG:  could not bind IPv4 socket: Address already in use
+HINT:  Is another postmaster already running on port 11111? If not, wait a few seconds and retry.
+WARNING:  could not create listen socket for "localhost"
+FATAL:  could not create any TCP/IP sockets
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2012-10-28 20:27:33 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "colleges" does not exist
+ERROR:  syntax error at or near "/" at character 1
+STATEMENT:  /idx
+	;
+ERROR:  syntax error at or near "/" at character 1
+STATEMENT:  /di
+	;
+ERROR:  relation "rankings_idx" does not exist at character 15
+STATEMENT:  select * from rankings_idx;
+ERROR:  "rankings_pkey" is an index at character 15
+STATEMENT:  select * from rankings_pkey;
+LOG:  using buffer replacement policy: clock
+LOG:  database system was interrupted; last known up at 2012-10-30 16:27:42 PDT
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/573B14
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "colleges" already exists
+STATEMENT:  CREATE DATABASE colleges;
+	
+ERROR:  relation "rankings" already exists
+STATEMENT:  create table rankings (id int primary key, name varchar(256), state varchar(10), public int, mathSAT int, verbalSAT int, combinedSAT int, ACT int, firstQMathSAT int, thirdQMathSAT int, firstQVerbalSAT int, thirdQVerbalSAT int, firstQACT int, thirdQACT int, applications int, accepted int, enrolled int, PercentInTop10PercentofHS float, PercentInTop25PercentofHS float, fulltimeUndergrads int, parttimeUndergrads int, instateTuition int, outofstateTuition int, roomAndBoardCosts int, RoomCosts int, BoardCosts int, additionalFees int, bookCosts int, personalSpending int, PctFacultyWithPhD float, PctFacultyWithTerminalDeg float, StudentFacultyRatio float, PctAlumniWhoDonate float, InstructionalSpendingPerStudent float, GradRate float);
+ERROR:  relation "financials" already exists
+STATEMENT:  create table financials (id int primary key, name varchar(256), state varchar(10), type varchar(10), fullprofsalary float, associateprofsalary float, assistantprofsalary float, aveSalary float, fullprofcompensation float, associateprofcompensation float, assistantprofcompensation float, avecompensation float, numFullProf int, numAssociateProf int, numAssistantProf int, numInstructors int, numFaculty int);
+ERROR:  relation "students" already exists
+STATEMENT:  create table students (id int primary key, name varchar(256), school int);
+ERROR:  duplicate key value violates unique constraint "rankings_pkey"
+CONTEXT:  COPY rankings, line 1: "1002,Alabama Agri. & Mech. Univ.,AL,1,*,*,*,17,*,*,*,*,14,17,2817,1920,984,*,*,3958,305,1700,3400,25..."
+STATEMENT:  copy rankings from '/home/ubuntu/my_fa12/hw4/usnews.data' delimiters ',' with NULL '*';
+ERROR:  duplicate key value violates unique constraint "financials_pkey"
+CONTEXT:  COPY financials, line 1: "1002,Alabama Agri.&Mech. Univ.,AL,IIA,442,369,310,350,530,444,376,423,59,77,102,24,262"
+STATEMENT:  copy financials from '/home/ubuntu/my_fa12/hw4/aaup.data' delimiters ',' with NULL '*';
+ERROR:  duplicate key value violates unique constraint "students_pkey"
+CONTEXT:  COPY students, line 1: "1,Janet Gaynor,3537"
+STATEMENT:  copy students from '/home/ubuntu/my_fa12/hw4/students.dat' delimiters ',';
+ERROR:  relation "gradrate_idx" already exists
+STATEMENT:  create index gradrate_idx on rankings(gradrate);
+ERROR:  syntax error at or near "DESC" at character 24
+STATEMENT:  select * from students DESC LIMIT DESC;
+ERROR:  syntax error at or near "DESC" at character 24
+STATEMENT:  select * from students DESC LIMIT 1;
+ERROR:  syntax error at or near ")" at character 22
+STATEMENT:  select count(DISTINCT) from rankings;
+ERROR:  syntax error at or near "from" at character 17
+STATEMENT:  select DISTINCT from rankings;
+ERROR:  syntax error at or near "DISTINCT" at character 17
+STATEMENT:  select count(*) DISTINCT state from rankings;
+ERROR:  syntax error at or near "DISTINCT" at character 15
+STATEMENT:  select count, DISTINCT state from rankings;
+ERROR:  column "state" does not exist at character 17
+STATEMENT:  select DISTINCT state from pg_stats;
+ERROR:  column "attr_name" does not exist at character 31
+STATEMENT:  select *  from pg_stats where attr_name = 'state';
+ERROR:  syntax error at or near ";" at character 68
+STATEMENT:  select *  from pg_stats where tablename = 'rankings' and attname = ;
+ERROR:  syntax error at or near ";" at character 68
+STATEMENT:  select *  from pg_stats where tablename = 'rankings' and attname = ;
+ERROR:  syntax error at or near "ANALYZ" at character 9
+STATEMENT:  EXPLAIN ANALYZ select * from rankings where state = 'CA';
+ERROR:  syntax error at or near "from" at character 26
+STATEMENT:  select most_common_vals, from pg_stats where tablename = 'rankings' and attname = 'state';
+ERROR:  syntax error at or near "state" at character 43
+STATEMENT:  create UNIQUE index state_idx on rankings state 
+	;
+ERROR:  could not create unique index "state_idx"
+DETAIL:  Table contains duplicated values.
+STATEMENT:  create UNIQUE index state_idx on rankings (state)
+	;
+ERROR:  syntax error at or near "sleect" at character 1
+STATEMENT:  sleect * from rankings where gradrate < 10;
+ERROR:  syntax error at or near "*" at character 9
+STATEMENT:  select (*) from rankings where gradrate < 10;
+ERROR:  syntax error at or near "DESC" at character 31
+STATEMENT:  select* from students LIMIT 5 DESC;
+ERROR:  syntax error at or near "DESC" at character 32
+STATEMENT:  select* from students LIMIT 5, DESC;
+ERROR:  syntax error at or near "from" at character 8
+STATEMENT:  select from students ORDER BY name;
+ERROR:  syntax error at or near "state_idx" at character 6
+STATEMENT:  drop state_idx
+	;
+ERROR:  syntax error at or near "state_idx" at character 6
+STATEMENT:  drop state_idx;
+ERROR:  index "studentfacultyration_idx" does not exist
+STATEMENT:  drop index studentfacultyration_idx
+	;
+ERROR:  syntax error at or near "." at character 45
+STATEMENT:  explain analyze select R.name, F.avesalary S.name from rankings R, financials F Students S where R.id = F.id and S.school = R.id;
+ERROR:  syntax error at or near "Students" at character 82
+STATEMENT:  explain analyze select R.name, F.avesalary, S.name from rankings R, financials F Students S where R.id = F.id and S.school = R.id;
+ERROR:  relation "ranking" does not exist at character 15
+STATEMENT:  select * from ranking limit 2;
+ERROR:  syntax error at or near "R" at character 38
+STATEMENT:  select R.name from rankings rankings R, faculty F where R.id = F.id and F.avesalary > all;
+ERROR:  syntax error at or near ";" at character 81
+STATEMENT:  select R.name from rankings R, faculty F where R.id = F.id and F.avesalary > all;
+ERROR:  relation "faculty" does not exist at character 32
+STATEMENT:  select R.name from rankings R, faculty F where R.id = F.id and F.avesalary > 3000;
+ERROR:  syntax error at or near ";" at character 84
+STATEMENT:  select R.name from rankings R, financials F where R.id = F.id and F.avesalary > all;
+ERROR:  syntax error at or near "." at character 23
+STATEMENT:  select R.name, (max) F.avesalary from rankings R, financials F where R.id = F.id;
+ERROR:  column "r.name" must appear in the GROUP BY clause or be used in an aggregate function at character 26
+STATEMENT:  select MAX(F.avesalary), R.name from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "select" at character 63
+STATEMENT:  select R.name from rankings R, financials F where R.id = F.id select MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "select" at character 63
+STATEMENT:  select R.name from rankings R, financials F where R.id = F.id select MAX(F.avesalary) from rankings R, financials F where R.id = F.id select MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "select" at character 63
+STATEMENT:  select R.name from rankings R, financials F where R.id = F.id select MAX(F.avesalary) from rankings R, financials F where R.id = F.id IN select MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "select" at character 63
+STATEMENT:  select R.name from rankings R, financials F where R.id = F.id select MAX(F.avesalary) from rankings R, financials F where R.id = F.id where exists select MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "select" at character 63
+STATEMENT:  select R.name from rankings R, financials F where R.id = F.id select MAX(F.avesalary) from rankings R, financials F where R.id = F.id where select MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "slect" at character 59
+STATEMENT:  select R.name from rankings R, financials F where R.id in slect MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "select" at character 59
+STATEMENT:  select R.name from rankings R, financials F where R.id in select MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "select" at character 45
+STATEMENT:  select R.name from rankings R where R.id in select MAX(F.avesalary) from financials F where R.id = F.id;
+ERROR:  subquery has too many columns at character 56
+STATEMENT:  select R.name from rankings R, financials F where F.id > ALL ( select * from rankings R, financials F where R.id = F.id);
+ERROR:  syntax error at or near "select" at character 59
+STATEMENT:  select R.name from rankings R, financials F where R.id in select MAX(F.avesalary) from rankings R, financials F where R.id = F.id;
+ERROR:  syntax error at or near "where" at character 46
+STATEMENT:  select R.name from rankings R, financials F, where R.id = F.id and F.avesalary in (select MAX(F.avesalary) from financials F where R.id = F.id);
+ERROR:  relation "ratings" does not exist at character 15
+STATEMENT:  select * from ratings
+	;
+ERROR:  column "difference" does not exist at character 93
+STATEMENT:  select R.name, (R.outofstatetuition - R.instatetuition) as difference from rankings R where difference in (select MAX(R.outofstatetuition - R.instatetuition) from rankings R);
+ERROR:  column r.enrollment does not exist at character 208
+STATEMENT:  select R.name, (R.outofstatetuition - R.instatetuition) as difference from rankings R where R.outofstatetuition - R.instatetuition in (select MAX(R.outofstatetuition - R.instatetuition) from rankings R) and R.enrollment > 1;
+ERROR:  syntax error at or near ">" at character 33
+STATEMENT:  select * from rankings gradrate > 20 and personalspending < 1000;
+ERROR:  syntax error at or near "slect" at character 1
+STATEMENT:  slect * from financials
+	;
+ERROR:  syntax error at or near ";" at character 189
+STATEMENT:  select name, gradrate, personalspending,enrolled from rankings where gradrate in ( select MAX(gradrate) from rankings where personalspending in (select MIN(personalspending) from Rankings);
+	)
+	;
+ERROR:  function average(integer) does not exist at character 153
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select name, gradrate, personalspending,enrolled from rankings where gradrate in ( select MAX(gradrate) from rankings where personalspending in (select AVERAGE(personalspending) from Rankings));
+ERROR:  function ave(integer) does not exist at character 153
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select name, gradrate, personalspending,enrolled from rankings where gradrate in ( select MAX(gradrate) from rankings where personalspending in (select AVE(personalspending) from Rankings));
+ERROR:  function average(integer) does not exist at character 153
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  select name, gradrate, personalspending,enrolled from rankings where gradrate in ( select MAX(gradrate) from rankings where personalspending in (select AVERAGE(personalspending) from Rankings));
+ERROR:  syntax error at or near "select" at character 82
+STATEMENT:  select name, gradrate, personalspending,enrolled from rankings where gradrate in select MAX(gradrate) from rankings where personalspending in (select MIN(personalspending) from Rankings)
+	;
+ERROR:  syntax error at or near ")" at character 152
+STATEMENT:  select name, gradrate, personalspending,enrolled from rankings where gradrate > 90 and personalspending in (select MIN(personalspending) from Rankings));
+ERROR:  column "rankings.name" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select name, gradrate, personalspending,enrolled from rankings where personalspending < 500 GROUP BY gradrate HAVING gradrate > 90;
+ERROR:  column "rankings.gradrate" must appear in the GROUP BY clause or be used in an aggregate function at character 14
+STATEMENT:  select name, gradrate from rankings where personalspending < 500 GROUP BY name HAVING gradrate > 90;
+ERROR:  syntax error at or near "," at character 110
+STATEMENT:  select name, gradrate from rankings where personalspending < 500 GROUP BY gradrate, name HAVING gradrate > 90, personalspending <500;
+ERROR:  column "rankings.personalspending" must appear in the GROUP BY clause or be used in an aggregate function at character 115
+STATEMENT:  select name, gradrate from rankings where personalspending < 500 GROUP BY gradrate, name HAVING gradrate > 90 and personalspending <500;
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2012-11-04 21:45:14 PST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  syntax error at or near "/" at character 1
+STATEMENT:  /di
+	;
+ERROR:  syntax error at or near "pg_stats" at character 22
+STATEMENT:  select count(*) form pg_stats where tablename = 'rankings' and statename = 'state'
+	;
+ERROR:  syntax error at or near "pg_stats" at character 22
+STATEMENT:  select count(*) form pg_stats where tablename = 'rankings' and statename = 'state'
+	;
+ERROR:  column "statename" does not exist at character 64
+STATEMENT:  select count(*) from pg_stats where tablename = 'rankings' and statename = 'state'
+	;
+ERROR:  syntax error at or near ")" at character 22
+STATEMENT:  select count(DISTINCT) from rankings;
+ERROR:  syntax error at or near "from" at character 17
+STATEMENT:  select DISTINCT from rankings;
+ERROR:  syntax error at or near "distinct" at character 24
+STATEMENT:  select * from rankings distinct;
+ERROR:  syntax error at or near "DISTINCT" at character 9
+STATEMENT:  select (DISTINCT) from rankings;
+ERROR:  syntax error at or near "DISTINCT" at character 24
+STATEMENT:  select * from rankings DISTINCT;
+ERROR:  syntax error at or near ")" at character 22
+STATEMENT:  select count(DISTINCT) name from rankings;
+ERROR:  syntax error at or near "name" at character 17
+STATEMENT:  select count(*) name from rankings;
+ERROR:  syntax error at or near "DISTINCT" at character 31
+STATEMENT:  select count(*) from rankings DISTINCT;
+ERROR:  syntax error at or near "as" at character 24
+STATEMENT:  create index state_idx as (state)
+	;
+ERROR:  syntax error at or near "title" at character 24
+STATEMENT:  create index state_idx title (state)
+	;
+ERROR:  syntax error at or near "title" at character 24
+STATEMENT:  create index state_idx title (state);
+ERROR:  syntax error at or near "title" at character 24
+STATEMENT:  create index state_idx title (state)
+	;
+ERROR:  relation "finincials" does not exist at character 53
+STATEMENT:  explain select R.name, F.avesalary from rankings R, finincials F Where R.id = F.if and R.studentfacultyration < 5;
+ERROR:  column f.if does not exist at character 79
+STATEMENT:  explain select R.name, F.avesalary from rankings R, financials F Where R.id = F.if and R.studentfacultyration < 5;
+ERROR:  relation "finincials" does not exist at character 53
+STATEMENT:  explain select R.name, F.avesalary from rankings R, finincials F Where R.id = F.id and R.studentfacultyration < 5;
+ERROR:  column r.studentfacultyration does not exist at character 88
+STATEMENT:  explain select R.name, F.avesalary from rankings R, financials F Where R.id = F.id and R.studentfacultyration < 5;
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2012-11-05 00:05:04 PST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  syntax error at or near "slect" at character 1
+STATEMENT:  slect n-distinct from pg_stats Where tablename = 'rankings' and attname = 'state';
+ERROR:  syntax error at or near "distinct" at character 10
+STATEMENT:  select n-distinct from pg_stats Where tablename = 'rankings' and attname = 'state';
+ERROR:  syntax error at or near "enable" at character 1
+STATEMENT:  enable set bitmapscan to off
+	;
+ERROR:  syntax error at or near "bitmapscan" at character 12
+STATEMENT:  set enable bitmapscan to off;
+ERROR:  column "California Institute of Technology
+	" does not exist at character 89
+STATEMENT:  select R.name, F.avesalary from Rankings R, Financials F where R.id = F.id and R.name = "California Institute of Technology
+	";
+ERROR:  column "California Institute of Technology" does not exist at character 89
+STATEMENT:  select R.name, F.avesalary from Rankings R, Financials F where R.id = F.id and R.name = "California Institute of Technology";
+ERROR:  column "California Institute of Technology" does not exist at character 90
+STATEMENT:  select R.name, F.avesalary from Rankings R, Financials F where R.id = F.id and R.name == "California Institute of Technology";
+ERROR:  column f.salary does not exist at character 16
+STATEMENT:  select R.name, F.salary from rankings R, financials F where R.id = F.id and
+	F.avesalary in (select MAX(F.avesalary) from financials F);
+ERROR:  syntax error at or near "from" at character 92
+STATEMENT:  Select name, gradrate from rankings where personalspending in (selectMIN(personalspending) from rankigs) 500 Group BY gradrate, name having gradrate > 90;
+ERROR:  syntax error at or near "from" at character 92
+STATEMENT:  Select name, gradrate from rankings where personalspending in (selectMIN(personalspending) from rankings) 500 Group BY gradrate, name having gradrate > 90;
+ERROR:  syntax error at or near "from" at character 94
+STATEMENT:  Select name, gradrate from rankings where personalspending in (selectMIN(R.personalspending) from rankings R) 500 Group BY gradrate, name having gradrate > 90;
+ERROR:  syntax error at or near "from" at character 94
+STATEMENT:  Select name, gradrate from rankings where personalspending in (selectMIN(R.personalspending) from rankings R) Group BY gradrate, name having gradrate > 90;
+ERROR:  syntax error at or near "from" at character 94
+STATEMENT:  Select name, gradrate from rankings where personalspending in (selectMIN(R.personalspending) from rankings R) and gradrate < 90;
+ERROR:  syntax error at or near "exit" at character 1
+STATEMENT:  exit
+	;
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2012-11-05 23:24:05 PST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "colleges" already exists
+STATEMENT:  CREATE DATABASE colleges;
+	
+ERROR:  syntax error at or near "slect" at character 1
+STATEMENT:  slect * from students;
+ERROR:  syntax error at or near "GROUP" at character 32
+STATEMENT:  select * from students LIMIT 5 GROUP BY school;
+ERROR:  column "students.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  select * from students GROUP BY school;
+ERROR:  column "students.name" must appear in the GROUP BY clause or be used in an aggregate function at character 16
+STATEMENT:  select school, name from students GROUP BY school;
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  using buffer replacement policy: clock
+LOG:  database system was shut down at 2013-06-10 14:19:39 PDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 24141) running in data directory "/Users/aldizhupani/pgsql/data"?
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 24141) running in data directory "/Users/aldizhupani/pgsql/data"?
+FATAL:  database "colleges" does not exist
+FATAL:  database "colleges" does not exist
+ERROR:  could not open file "/home/ubuntu/my_fa12/hw4/usnews.data" for reading: No such file or directory
+STATEMENT:  copy rankings from '/home/ubuntu/my_fa12/hw4/usnews.data' delimiters ',' with NULL '*';
+ERROR:  could not open file "/home/ubuntu/my_fa12/hw4/aaup.data" for reading: No such file or directory
+STATEMENT:  copy financials from '/home/ubuntu/my_fa12/hw4/aaup.data' delimiters ',' with NULL '*';
+ERROR:  could not open file "/home/ubuntu/my_fa12/hw4/students.dat" for reading: No such file or directory
+STATEMENT:  copy students from '/home/ubuntu/my_fa12/hw4/students.dat' delimiters ',';
+FATAL:  database "/usr/local/bin/ruby_projects/database_projects/optimizer_practi" does not exist
+ERROR:  relation "rankings" already exists
+STATEMENT:  create table rankings (id int primary key, name varchar(256), state varchar(10), public int, mathSAT int, verbalSAT int, combinedSAT int, ACT int, firstQMathSAT int, thirdQMathSAT int, firstQVerbalSAT int, thirdQVerbalSAT int, firstQACT int, thirdQACT int, applications int, accepted int, enrolled int, PercentInTop10PercentofHS float, PercentInTop25PercentofHS float, fulltimeUndergrads int, parttimeUndergrads int, instateTuition int, outofstateTuition int, roomAndBoardCosts int, RoomCosts int, BoardCosts int, additionalFees int, bookCosts int, personalSpending int, PctFacultyWithPhD float, PctFacultyWithTerminalDeg float, StudentFacultyRatio float, PctAlumniWhoDonate float, InstructionalSpendingPerStudent float, GradRate float);
+ERROR:  relation "financials" already exists
+STATEMENT:  create table financials (id int primary key, name varchar(256), state varchar(10), type varchar(10), fullprofsalary float, associateprofsalary float, assistantprofsalary float, aveSalary float, fullprofcompensation float, associateprofcompensation float, assistantprofcompensation float, avecompensation float, numFullProf int, numAssociateProf int, numAssistantProf int, numInstructors int, numFaculty int);
+ERROR:  relation "students" already exists
+STATEMENT:  create table students (id int primary key, name varchar(256), school int);
+ERROR:  relation "gradrate_idx" already exists
+STATEMENT:  create index gradrate_idx on rankings(gradrate);
+ERROR:  syntax error at or near "/" at character 1
+STATEMENT:  /index
+	;
+ERROR:  syntax error at or near "ls" at character 1
+STATEMENT:  ls
+	;
